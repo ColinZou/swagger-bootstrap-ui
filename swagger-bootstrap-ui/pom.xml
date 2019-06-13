@@ -6,7 +6,7 @@
 
     <groupId>com.github.xiaoymin</groupId>
     <artifactId>swagger-bootstrap-ui</artifactId>
-    <version>1.9.4</version>
+    <version>1.9.4-SNAPSHOT</version>
     <name>swagger-bootstrap-ui</name>
     <description>Swagger-Bootstrap-UI is the front of the UI Swagger implementation, using jQuery+bootstrap implementation, the purpose is to replace the default UI Swagger implementation of the Swagger-UI, so that the document is more friendly...</description>
     <url>https://git.oschina.net/xiaoym/swagger-bootstrap-ui</url>
@@ -29,6 +29,7 @@
         <!-- 打包跳过单元测试 -->
         <skipTests>true</skipTests>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
+        <private.repo.url>http://dev-base-maven.canguanwuyou.com/repository/snapshots/</private.repo.url>
     </properties>
     <licenses>
         <license>
@@ -43,13 +44,16 @@
     </scm>
     <distributionManagement>
         <snapshotRepository>
-            <id>oss</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <id>archiva-dev-snapshots-deploy</id>
+            <url>${private.repo.url}</url>
+            <name>local archiva snapshot repo</name>
+            <layout>default</layout>
+            <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
-        <repository>
+        <!-- <repository>
             <id>oss</id>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
+        </repository> -->
     </distributionManagement>
     <dependencies>
 
@@ -206,13 +210,16 @@
             </build>
             <distributionManagement>
                 <snapshotRepository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+                    <id>archiva-dev-snapshots-deploy</id>
+                    <url>${private.repo.url}</url>
+                    <name>local archiva snapshot repo</name>
+                    <layout>default</layout>
+                    <uniqueVersion>false</uniqueVersion>
                 </snapshotRepository>
-                <repository>
+                <!-- <repository>
                     <id>oss</id>
                     <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
+                </repository> -->
             </distributionManagement>
         </profile>
     </profiles>
