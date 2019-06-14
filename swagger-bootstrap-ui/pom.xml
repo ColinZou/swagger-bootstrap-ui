@@ -161,6 +161,12 @@
     </build>
     <profiles>
         <profile>
+            <id>local-deploy</id>
+            <properties>
+                <private.repo.url>http://localhost:8080/repository/snapshots/</private.repo.url>
+            </properties>
+        </profile>
+        <profile>
             <id>release</id>
             <build>
                 <plugins>
